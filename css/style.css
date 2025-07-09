@@ -1,0 +1,227 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #1e90ff, #70a1ff);
+}
+
+#game-container {
+    background: white;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.screen {
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+/* 메인 화면 스타일 */
+h1 {
+    color: #333;
+    font-size: 3em;
+    margin-bottom: 30px;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 15px 30px;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 10px;
+    background: #4CAF50;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+#hearts {
+    font-size: 2em;
+    color: #ff4757;
+}
+
+/* 게임 화면 스타일 */
+.game-info {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    color: #333;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.game-controls {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#game-board {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 5px;
+    background: #f1f2f6;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.block {
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    background: white;
+    border: 2px solid #dfe4ea;
+    transition: transform 0.2s;
+}
+
+.block:hover {
+    transform: scale(1.1);
+}
+
+.block.selected {
+    border-color: #ffa502;
+    box-shadow: 0 0 10px rgba(255, 165, 2, 0.5);
+}
+
+/* 동물별 배경색 스타일 */
+.block .dog-block {
+    display: inline-block;
+    padding: 5px;
+    border-radius: 8px;
+    background-color: #FFE5D9;  /* 연한 살구색 */
+}
+
+.block .cat-block {
+    display: inline-block;
+    padding: 5px;
+    border-radius: 8px;
+    background-color: #FFF0E5;  /* 연한 주황색 */
+}
+
+.block .rabbit-block {
+    display: inline-block;
+    padding: 5px;
+    border-radius: 8px;
+    background-color: #F8F9FA;  /* 연한 흰색 */
+}
+
+.block .panda-block {
+    display: inline-block;
+    padding: 5px;
+    border-radius: 8px;
+    background-color: #E9ECEF;  /* 연한 회색 */
+}
+
+.block .fox-block {
+    display: inline-block;
+    padding: 5px;
+    border-radius: 8px;
+    background-color: #FFE8D6;  /* 연한 주황빛 갈색 */
+}
+
+.block .tiger-block {
+    display: inline-block;
+    padding: 5px;
+    border-radius: 8px;
+    background-color: #FFE5E5;  /* 연한 붉은색 */
+}
+
+/* 결과 화면 스타일 */
+.result-info {
+    margin: 30px 0;
+    font-size: 1.5em;
+}
+
+#retry-button {
+    background: #ff6b81;
+}
+
+/* 애니메이션 */
+@keyframes popIn {
+    0% { transform: scale(0); }
+    70% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+@keyframes fadeOut {
+    to { opacity: 0; }
+}
+
+.pop-in {
+    animation: popIn 0.3s ease-out;
+}
+
+.fade-out {
+    animation: fadeOut 0.3s ease-out;
+}
+
+/* 스테이지 전환 스타일 */
+.stage-transition {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 30px 60px;
+    border-radius: 15px;
+    font-size: 2em;
+    z-index: 1000;
+    animation: stageTransition 2s ease-in-out;
+}
+
+@keyframes stageTransition {
+    0% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+    20% { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
+    80% { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
+    100% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+}
+
+/* 흔들기 버튼 스타일 */
+#shuffle-button {
+    padding: 10px 20px;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 120px;
+}
+
+#shuffle-button.shuffle-active {
+    background: #4CAF50;
+    color: white;
+}
+
+#shuffle-button.shuffle-disabled {
+    background: #cccccc;
+    color: #666666;
+    cursor: not-allowed;
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>재활용 게임</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="game-container">
+        <!-- 메인 화면 -->
+        <div id="main-screen" class="screen">
+            <h1>재활용</h1>
+            <div class="menu">
+                <button id="start-button">게임 시작</button>
+                <button id="ranking-button" style="display: none;">랭킹 보기</button>
+                <button id="settings-button" style="display: none;">설정</button>
+            </div>
+            <div id="hearts">
+                <span>♥</span><span>♥</span><span>♥</span>
+            </div>
+        </div>
+
+        <!-- 게임 화면 -->
+        <div id="game-screen" class="screen hidden">            <div class="game-info">
+                <div id="stage">Stage 1</div>
+                <div id="timer">60</div>
+                <div id="score">0</div>
+                <div id="target">Target: 0/10</div>
+            </div>
+            <div id="game-board"></div>
+            <div class="game-controls">
+                <div id="combo">Combo: 0</div>
+                <button id="shuffle-button" class="shuffle-active">흔들기 2번</button>
+            </div>
+        </div>
+
+        <!-- 결과 화면 -->
+        <div id="result-screen" class="screen hidden">
+            <h2>게임 종료!</h2>
+            <div class="result-info">
+                <p>최종 점수: <span id="final-score">0</span></p>
+                <p>최고 기록: <span id="best-score">0</span></p>
+            </div>
+            <button id="retry-button">다시하기</button>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/game.js"></script>
+</body>
+</html>
